@@ -1,0 +1,36 @@
+*, ::after, ::before{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.card-wrapper{
+    container: card / inline-size;
+}
+
+.card{
+    margin: 80px;
+
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    width: 90%;
+
+    @container card (width >= 350px){
+        flex-direction: row;
+    }
+}
+
+.card__img{
+    width: 300px;
+    border-radius: 20px;
+}
+
+

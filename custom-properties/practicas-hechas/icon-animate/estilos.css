@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animación Icono */
+
+@property --circle-clippath-percentage{
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 0%;
+}
+
+@property --transform-arrow-icon{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: translate(0, 0);
+}
+
+@property --scale-whole-icon{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(1);
+}
+
+@property --opacity-arrow-icon{
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 1;
+}
+
+@property --scale-check-icon{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(0);
+}
+
+
+.icon-animation{
+    display: grid;
+    place-items: center;
+    grid-template-areas: "icons";
+    animation: icon 3s forwards;
+}
+
+/* Se multiplica por 77 o 61, para mantener la
+relacion de aspecto */
+.icon{
+    transform: var(--scale-whole-icon);
+    width: calc(77*2px);
+    height: calc(61*2px);
+    display: block;
+}
+
+.check{
+    width: 70px;
+    height: 70px;
+    transform: var(--scale-check-icon);
+}
+
+.icon, .check{
+    grid-area: icons;
+}
+
+
+#circle{
+    overflow: hidden;
+    clip-path: circle(var(--circle-clippath-percentage) at 50% 100%);
+}
+
+#arrow{
+    opacity: var(--opacity-arrow-icon);
+    transform: var(--transform-arrow-icon);
+}
+
+
+@keyframes icon {
+
+    0%{
+        --scale-check-icon: scale(0);
+        --circle-clippath-percentage: 0%;
+        --opacity-arrow-icon: 1;
+        --transform-arrow-icon: translate(0, 0%);
+    }
+
+
+    40%{
+        --scale-check-icon: scale(0);
+        --transform-arrow-icon: translate(0, 90%);
+        --opacity-arrow-icon: .7;
+        --circle-clippath-percentage: 0%;
+    }
+
+    60%{
+        --scale-check-icon: scale(0);
+        --scale-whole-icon: scale(1); 
+        --transform-arrow-icon: translate(0, 90%);
+        --circle-clippath-percentage: 100%;
+    }
+
+    80%{
+        --scale-check-icon: scale(0);
+        --scale-whole-icon: scale(0);
+        --circle-clippath-percentage: 100%;
+        --transform-arrow-icon: translate(0, 80%);
+    }
+
+    100%{
+        --scale-whole-icon: scale(0);
+        --circle-clippath-percentage: 100%;
+        --transform-arrow-icon: translate(0, 80%);
+        --scale-check-icon: scale(1);
+    }
+
+}

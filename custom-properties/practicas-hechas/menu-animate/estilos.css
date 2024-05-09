@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.menu{
+    scale: 2;
+
+    display: grid;
+    place-items: center;
+    grid-template-areas: "icon";
+
+    --translate-element1: translate(0);
+    --translate-element2: translate(0);
+    --translate-element3: translate(0);
+    --background-color-button: #6979F8;
+    --image-button: url("./assets/plus.svg");
+}
+
+.menu:has(.menu-input:checked){
+    --image-button: url("./assets/close.svg");
+    --translate-element1: translate(-200%, -100%);
+    --translate-element2: translate(0%, -200%);
+    --translate-element3: translate(200%, -100%);
+    --background-color-button: #000;
+}
+
+.btn-menu{
+    grid-area: icon;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--background-color-button);
+    background-image: var(--image-button);
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: 50px;
+
+    transition: background-image .3s, background-color .3s;
+
+    z-index: 10;
+    cursor: pointer;
+}
+
+.menu-input{
+    display: none;
+}
+
+.menu-icon{
+    grid-area: icon;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    width: 40px;
+    height: 40px;
+    background-color: #6979F8;
+
+    transition: .4s transform;
+}
+
+.menu-icon:nth-of-type(1){
+    
+    transform: var(--translate-element1);
+}
+
+.menu-icon:nth-of-type(2){
+    
+    transform: var(--translate-element2);
+}
+
+.menu-icon:nth-of-type(3){
+    
+    transform: var(--translate-element3);
+}
+

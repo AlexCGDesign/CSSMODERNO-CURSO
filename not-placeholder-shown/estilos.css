@@ -1,0 +1,75 @@
+*,
+::after,
+::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 80px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 80px;
+}
+
+.title {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.wrapper :is(h1, h2, h3, h4){
+    color: red;
+}
+
+/* Placeholder-shown */
+
+.form {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.label {
+    display: grid;
+    grid-template-areas: "input";
+}
+
+.label__name {
+    grid-area: input;
+
+    width: max-content;
+    z-index: 100;
+    margin-left: 1rem;
+    padding: 0 .5rem;
+    align-self: center;
+
+    transition: transform .2s;
+    transform-origin: center left;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    grid-area: input;
+
+    width: 300px;
+    font: inherit;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: .7rem 1.5rem;
+}
+
+
+.input:where(:focus, :not(:placeholder-shown)) + .label__name{
+    transform: translateY(-50%) scale(.7);
+    background-color: white;
+}
+
+

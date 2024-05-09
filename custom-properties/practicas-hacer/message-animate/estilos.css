@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+@property --message-transform{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(0) ;
+}
+
+@property --content-message{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(0) ;
+}
+
+
+@property --top-message-rotate{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(-1) ;
+}
+
+@property --stars-opacity{
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0 ;
+}
+
+.message{
+    transform-origin: top right;
+    transform: var(--message-transform);
+
+    animation: mensaje-mostrar 2s forwards;
+}
+
+@keyframes mensaje-mostrar {
+    0%{
+        --message-transform: scale(0);
+        --content-message: scale(-1);
+        --content-message: scale(0);
+        --stars-opacity: 0;
+    }
+
+    33%{ 
+        --message-transform: scale(1);
+        --content-message: scale(-1);
+        --content-message: scale(0); 
+        --stars-opacity: 0;
+    }
+
+    66%{
+        --content-message: scale(0);
+        --top-message-rotate: scale(1);
+        --message-transform: scale(1);
+        --stars-opacity: 0;
+    }
+
+    100%{
+        --content-message: scale(1);
+        --top-message-rotate: scale(1);
+        --message-transform: scale(1);
+        --stars-opacity: 1;
+    }
+}
+
+
+#stars{
+    opacity: var(--stars-opacity);
+}
+
+#top-message{
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    transform: var(--top-message-rotate);
+}
+
+#body-content{
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    transform: var(--content-message);
+}

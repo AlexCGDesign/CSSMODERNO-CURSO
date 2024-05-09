@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-titulos: 30px;
+    --color-botones: royalblue;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+}
+
+@property --variable-diferente{
+    syntax: "<length>";
+    inherits: true;
+    initial-value: seagreen;
+}
+
+@property --gradiente-color{
+    syntax: "<color>";
+    inherits: true;
+    initial-value: royalblue;
+}
+
+.hero{
+    width: 100%;
+    background-color: var(--creada-con-javascript);
+
+    transition: --gradiente-color 2s;
+    height: 300px;
+}
+
+.hero:hover{
+    --gradiente-color: seagreen;
+}
+
+@property --transform-title{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: translateY(0);
+}
+
+
+.hero__title{
+    display: none;
+    transform: var(--transform-title);
+
+
+    font-size: 5rem;
+
+    text-align: center;
+}
+
+@keyframes cambiar-color {
+    50%{
+        --transform-title: translateY(100%);
+    }
+
+    100%{
+        --transform-title: translateY(200%);
+    }
+}
+
+.hero__btn{
+    
+    font: inherit;
+    background-color: var(--color-botones);
+    color: white;
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+
+    display: none;
+}
+
+
+.card{
+    margin: 0 auto;
+    width: 300px;
+
+    box-shadow: 0 0 6px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card__img{
+    width: 100%;
+}
+
+.card__texts{
+    padding: 1.5rem .6rem;
+}
+
+.card__title{
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: var(--color-titulos);
+}
+
+.card__btn{
+    background-color: var(--color-botones);
+
+    font: inherit;
+    color: white;
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    border: none;
+    padding: .5rem 1.5rem;
+    border-radius: 10px;
+}
+
+
+

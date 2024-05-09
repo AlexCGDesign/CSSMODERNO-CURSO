@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Loader points */
+
+@property --dot1{
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.5;
+}
+
+@property --dot2{
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.5;
+}
+
+@property --dot3{
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.5;
+}
+
+.loader{
+    display: grid;
+    gap: 2rem;
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    animation: loader 1.3s infinite ease-in;
+}
+
+@keyframes loader {
+
+    0%, 100%{
+        --dot1: 0.5;
+        --dot2: 0.5;
+        --dot3: 0.5;
+    }
+    25%{
+        --dot1: 1;
+        --dot2: 0.5;
+        --dot3: 0.5;
+    }
+
+    50%{
+        --dot1: 1;
+        --dot2: 1;
+        --dot3: 0.5;
+    }
+
+    75%{
+        --dot1: 1;
+        --dot2: 1;
+        --dot3: 1;
+    }
+}
+
+
+.dot{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: seagreen;
+}
+
+.dot-1{
+    transform: scale(var(--dot1));
+}
+
+
+.dot-2{
+    transform: scale(var(--dot2));
+}
+
+
+.dot-3{
+    transform: scale(var(--dot3));
+}
+

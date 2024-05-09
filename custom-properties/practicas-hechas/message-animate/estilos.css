@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+@property --top-message-rotate{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(-1);
+}
+
+@property --content-message{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(0);
+}
+
+@property --message-transform{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: scale(0);
+}
+
+@property --stars-opacity{
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+.message{
+    margin: 40px;
+    transform-origin: top right;
+    transform: var(--message-transform);
+    animation: message 2s forwards;
+}
+
+@keyframes message {
+    0%{
+        --message-transform: scale(0);
+        --top-message-rotate: scale(0);
+        --content-message: scale(0);
+        --stars-opacity: 0;
+    }
+
+    33%{
+        --message-transform: scale(1);
+        --top-message-rotate: scale(0);
+        --content-message: scale(0);
+        --stars-opacity: 0;
+    }
+
+    66%{
+        --message-transform: scale(1);
+        --top-message-rotate: scale(1);
+        --content-message: scale(0);
+        --stars-opacity: 0;
+    }
+
+
+    100%{
+        --message-transform: scale(1);
+        --content-message: scale(1);
+        --top-message-rotate: scale(1);
+        --stars-opacity: 1;
+    }
+}
+
+#top-message{
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    transform: var(--top-message-rotate);
+}
+
+#body-content{
+    transform-origin: bottom center;
+    transform-box: fill-box;
+    transform: var(--content-message);
+}
+
+
+
+#stars{
+    opacity: var(--stars-opacity);
+}
+
+

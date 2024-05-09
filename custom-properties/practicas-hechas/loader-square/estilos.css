@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+@property --square-1{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: translate(0,0%);
+}
+
+@property --square-2{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: translate(0,0%);
+}
+
+@property --square-3{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: translate(0,0%);
+}
+
+@property --square-4{
+    syntax: "<transform-function>";
+    inherits: true;
+    initial-value: translate(0,0%);
+}
+
+.loader-square{
+    margin: 80px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    animation: loader forwards 3s infinite;
+}
+
+.square{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(172, 59, 14);
+   
+}
+
+@keyframes loader {
+    0%, 100%{
+        --square-1: translate(0, 0);
+        --square-2: translate(0, 0);
+        --square-3: translate(0, 0);
+        --square-4: translate(0, 0);
+    }
+
+
+    25%{
+        --square-1: translate(-100%, -100%);
+        --square-2: translate(100%, -100%);
+        --square-3: translate(-100%, 100%);
+        --square-4: translate(100%, 100%);
+    }
+
+    50%{
+        --square-1: translate(200%, -100%);
+        --square-2: translate(100%, 200%);
+        --square-3: translate(-100%, -200%);
+        --square-4: translate(-200%, 100%);
+    }
+
+    75%{
+        --square-1: translate(100%, 0%);
+        --square-2: translate(0%, 100%);
+        --square-3: translate(0%, -100%);
+        --square-4: translate(-100%, 0%);
+    }
+
+}
+
+.square-1{
+ transform: var(--square-1);
+}
+
+.square-2{
+    transform: var(--square-2);
+}
+
+
+.square-3{
+    transform: var(--square-3);
+}
+
+.square-4{
+    transform: var(--square-4);
+}
+
